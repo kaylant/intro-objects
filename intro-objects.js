@@ -235,8 +235,8 @@ console.assert(midcentury.length === 2)
 
 var politeObject = {
     name: "Frank",
-    this.personaize = function(){
-
+    personalize: function(){
+        return("Hi, my name is " + politeObject.name + ", and the result is " + helloWorld() + "." )
     }
 }
 
@@ -245,5 +245,4 @@ var helloWorld = function() {
 }
 
 var personalizedResult = politeObject.personalize(helloWorld)
-console.assert(personalizedResult === "Hi, my name is Frank, and the \
-    result is hello world.")
+console.assert(personalizedResult === "Hi, my name is Frank, and the result is hello world.")
