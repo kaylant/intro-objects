@@ -183,19 +183,23 @@ console.assert(planetTom['prop'] === undefined)
 // objects that meet the key-value conditions.
 // -----------
 
+var meetsCriteria = function(obj,criteriaObject) {
+    for (var prop in criteriaObject) {
+        if (criteriaObject[prop] !== obj[prop]) {
+            return false
+        }
+    }
+    return true
+}
+
 var where = function(arrayOfObjects, propObject) {
     var newArrayOfObjects = []
     for(var i = 0; i < arrayOfObjects.length; i++) {
-       var propObject = arrayOfObjects[i]
-       for(var prop in propObject) {
-            if(propObject.hasOwnProperty(prop)) {
-                newArrayOfObjects.push(propObject)
-            } 
-            else {
-        
-            }
+        var obj = arrayOfObjects[i]
+        if (meetsCriteria(obj,propObject)) {
+            newArrayOfObjects.push(obj)
        } 
-    } //log(propObject)
+    }
     return newArrayOfObjects
 }
 
